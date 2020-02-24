@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Counter} from "./Counter";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    showCounter: true,
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.showCounter && <Counter/>}
+        {/*{this.showCounter ? <Counter/> : undefined}*/}
+        <button onClick={this.handleToggle}>Toggle</button>
+      </div>
+    )
+  }
+
+  handleToggle = () => this.setState(state => ({showCounter: !state.showCounter}))
 }
 
 export default App;
