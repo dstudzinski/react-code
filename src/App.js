@@ -1,5 +1,6 @@
 import React from 'react';
 import {Counter} from "./Counter";
+import {Text} from "./Text";
 import './App.css';
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
         {this.state.showCounter && <Counter counter={this.state.counter} onClick={this.handleClick}/>}
         {/*{this.showCounter ? <Counter/> : undefined}*/}
         <button onClick={this.handleToggle}>Toggle</button>
+        <Text>Some text</Text>
       </div>
     )
   }
