@@ -12,6 +12,12 @@ class Text extends React.Component {
     console.log('mounted');
   }
 
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    if (nextProps.children === this.props.children) {
+      return false;
+    }
+  }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('updated');
   }
