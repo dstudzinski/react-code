@@ -7,6 +7,8 @@ class App extends React.Component {
     this.state = {
       counter: 0,
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // state = {
@@ -23,14 +25,23 @@ class App extends React.Component {
   }
 
   handleClick() {
-    // problems - missing bind, this.state used to read current state
-    this.setState({
-      counter: this.state.counter + 1,
-    });
-    this.setState({
-      counter: this.state.counter + 1,
-    });
+    this.setState(state => ({
+      counter: state.counter + 1,
+    }));
+    this.setState(state => ({
+      counter: state.counter + 1,
+    }));
   }
+
+  // https://stackoverflow.com/a/53316560
+  // handleClickAutobound = () => {
+  //   this.setState(state => ({
+  //     counter: state.counter + 1,
+  //   }));
+  //   this.setState(state => ({
+  //     counter: state.counter + 1,
+  //   }));
+  // }
 }
 
 export {
