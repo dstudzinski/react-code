@@ -7,14 +7,14 @@ const TRANSLATION = {
   [languages.EN]: 'Hello',
 };
 
-function Text() {
-  return (
-    <LanguageContext.Consumer>
-      {
-        ({language}) => (<p>{TRANSLATION[language]}</p>)
-      }
-    </LanguageContext.Consumer>
-  )
+class Text extends React.Component {
+  static contextType = LanguageContext;
+
+  render() {
+    return (
+      <p>{TRANSLATION[this.context.language]}</p>
+    )
+  }
 }
 
 export {

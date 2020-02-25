@@ -2,19 +2,17 @@ import React from "react";
 
 import {LanguageContext, languages} from "./ContextLanguages";
 
-function LangSwitcher() {
-  return (
-    <LanguageContext.Consumer>
-      {
-        ({language, setLanguage}) => (
-          <div>
-            <button onClick={() => setLanguage(languages.EN)}>Set EN</button>
-            <button onClick={() => setLanguage(languages.PL)}>Set PL</button>
-          </div>
-        )
-      }
-    </LanguageContext.Consumer>
-  )
+class LangSwitcher extends React.Component {
+  static contextType = LanguageContext;
+
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.context.setLanguage(languages.EN)}>Set EN</button>
+        <button onClick={() => this.context.setLanguage(languages.PL)}>Set PL</button>
+      </div>
+    )
+  }
 }
 
 export {
