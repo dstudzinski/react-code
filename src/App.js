@@ -5,13 +5,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      {/* children as a function */}
-      <CursorObserver>
-        {
-          (clientX, clientY) => (<div>clientX: {clientX}, clientY: {clientY}</div>)
-        }
-      </CursorObserver>
+    <div className="App">{/* render prop */}
+      <CursorObserver onCursorMove={(clientX, clientY) => (<div>clientX: {clientX}, clientY: {clientY}</div>)}/>
     </div>
   );
 }
