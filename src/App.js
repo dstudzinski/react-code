@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">{/* render prop */}
-      <CursorObserver onCursorMove={(clientX, clientY) => (<div>clientX: {clientX}, clientY: {clientY}</div>)}/>
+      <CursorObserver onCursorMove={(clientX, clientY) => console.log({clientX, clientY})}/>
     </div>
   );
 }

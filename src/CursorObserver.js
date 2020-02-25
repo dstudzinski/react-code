@@ -11,7 +11,9 @@ class CursorObserver extends React.Component {
   }
 
   render() {
-    return this.props.onCursorMove && this.props.onCursorMove(this.state.clientX, this.state.clientY);
+    this.props.onCursorMove && this.props.onCursorMove(this.state.clientX, this.state.clientY);
+
+    return null;
   }
 
   componentDidMount() {
