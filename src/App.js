@@ -3,6 +3,7 @@ import React from 'react';
 import {Text} from "./Text";
 import './App.css';
 
+import {LangSwitcher} from "./LangSwitcher";
 import {LanguageContext, languages} from "./ContextLanguages";
 
 class App extends React.Component{
@@ -12,15 +13,16 @@ class App extends React.Component{
 
   render() {
     return (
-      <LanguageContext.Provider value={this.state.language}>
+      <LanguageContext.Provider value={{language: this.state.language, setLanguage: this.setLanguage}}>
         <div className="App">
+          <LangSwitcher/>
           <Text/>
-          <button onClick={() => this.setState({language: languages.EN})}>Set EN</button>
-          <button onClick={() => this.setState({language: languages.PL})}>Set PL</button>
         </div>
       </LanguageContext.Provider>
     );
   }
+
+  setLanguage = language => this.setState({language})
 }
 
 export default App;

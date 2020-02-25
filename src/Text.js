@@ -11,7 +11,7 @@ function Text() {
   return (
     <LanguageContext.Consumer>
       {
-        language => (<p>{TRANSLATION[language]}</p>)
+        ({language}) => (<p>{TRANSLATION[language]}</p>)
       }
     </LanguageContext.Consumer>
   )
