@@ -7,13 +7,20 @@ import {LangSwitcher} from "./LangSwitcher";
 import {LanguageContext, languages} from "./ContextLanguages";
 
 class App extends React.Component{
-  state = {
-    language: languages.PL
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      languageContext: {
+        language: languages.PL,
+        setLanguage: this.setLanguage
+      }
+    };
+  }
 
   render() {
     return (
-      <LanguageContext.Provider value={{language: this.state.language, setLanguage: this.setLanguage}}>
+      <LanguageContext.Provider value={this.state.languageContext}>
         <div className="App">
           <LangSwitcher/>
           <Text/>
@@ -22,7 +29,7 @@ class App extends React.Component{
     );
   }
 
-  setLanguage = language => this.setState({language})
+  setLanguage = language => this.setState(state => ({languageContext: {...state.languageContext, language}}))
 }
 
 export default App;
