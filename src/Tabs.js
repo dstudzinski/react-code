@@ -4,7 +4,7 @@ class Tabs extends React.Component {
   render() {
     return (
       <div>
-        {this.props.children}
+        {React.Children.toArray(this.props.children).filter(child => child.type.displayName === 'Tab')}
       </div>
     )
   }

@@ -10,6 +10,8 @@ class Tab extends React.Component {
   }
 }
 
+Tab.displayName = 'Tab';
+
 export {
   Tab,
 }
