@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useReducer, useState} from 'react';
+
 import './App.css';
+import Counter from "./Counter";
+import Lifecycle from "./Lifecycle";
+import FetchData from "./FetchData";
 
 function App() {
+  const setRefresh = useReducer(x => x + 1, 0)[1];
+  const [showLifecycle, setShowLifecycle] = useState(true);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter/>
+      <br/>
+      <br/>
+      <button onClick={setRefresh}>Refresh lifecycle</button><button onClick={() => setShowLifecycle(false)}>Hide lifecycle</button><br/>
+      {showLifecycle && <Lifecycle/>}
+      <br/>
+      <br/>
+      <FetchData/>
     </div>
   );
 }
