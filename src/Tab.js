@@ -1,17 +1,24 @@
 import React from "react";
 
-class Tab extends React.Component {
+class TableCell extends React.Component {
   render() {
     return (
-      <div>
-        {this.props.children}
-      </div>
-    )
+      <span onClick={() => this.props.onSort(this.props.name)}>{this.props.children}</span>
+    );
   }
 }
 
-Tab.displayName = 'Tab';
+TableCell.displayName = 'TableCell';
 
 export {
-  Tab,
+  TableCell,
+}
+
+
+function TableRow(props) {
+  return props.children;
+}
+
+function TableRowExpandableContent(props) {
+  return props.shown ? props.children : null;
 }
